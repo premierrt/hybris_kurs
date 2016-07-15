@@ -1,0 +1,153 @@
+do czytania:
+https://wiki.hybris.com/display/accdoc/SEO+Directives
+https://wiki.hybris.com/display/accdoc/hybris+Commerce+Accelerator+SEO+URL+Tutorial
+
+https://wiki.hybris.com/display/accdoc/Spring+Security
+
+
+
+https://wiki.hybris.com/display/release5/commercefacades+Extension+-+Technical+Guide
+
+=======================Teoria:
+==Architektura:
+https://wiki.hybris.com/display/release5/Architecture+of+the+hybris+Commerce+Suite
+
+-spring w hybris
+https://wiki.hybris.com/display/release5/Spring+Framework+in+the+hybris+Commerce+Suite
+
+===================================
+
+-do przerobienia 
+-klient ws podlaczony pod springa
+--dodac extenstion z klientem do pogody z netu. jako spring ws.
+-mockito
+
+
+-git - wrzucac wersje do gita
+---zrobic caly katalog z harbis jako repo w eclipse?
+---http://stackoverflow.com/questions/6001136/how-can-i-add-current-eclipse-project-to-git-with-egit
+---wystwic Ajaksy do github. zrobic tag, branch, merge itd.
+http://www.wykop.pl/ramka/1003529/git-pieknie-przygotowany-przewodnik/
+
+---
+- Converter i Populator - tworzenie DAO w fasadzie
+http://indainhybris.blogspot.com/2016/05/overview-on-converters-and-populators.html
+https://wiki.hybris.com/display/release5/Converters+and+Populators
+
+-jenkins - https://www.youtube.com/watch?v=h99LCi8peUQ&index=3&list=PLE3049YXjej7tSvluuxOm95FLjqsQWAZT
+
+
+
+-solar
+http://www.toadworld.com/platforms/oracle/w/wiki/11010.indexing-oracle-database-table-data-in-apache-solr
+
+
+
+-spring integration
+------------
+
+
+
+1. preparation - instalacja
+https://wiki.hybris.com/display/R5T/Trail+~+Preparation
+
+
+C:\instalki\hybris-telco-accelerator-5.1.0.0\hybris\bin\platform\tomcat\conf
+zminiejszyc Xmx na 1GB
+
+
+--uruchamianie z konsoli
+C:\instalki\hybris-telco-accelerator-5.1.0.0\hybris\bin\platform
+hybrisserver.bat
+
+ http://localhost:9001/
+ 
+
+
+========srodowisko =================
+--eclipse
+-import project
+-na projekcie: platform -> ant view -> outline-> all
+-jak sa bledy na kazdym projekcie z builda to F5 na kazdym, clean, build all... / ew. samo clean z eclipse
+-- java musi byc ta sama:
+-eclipse 64
+-java_home 64
+-ant -> Run As -> ant build.. (w sekcji run ustawic jre 64 bit)
+--bledy kompilacji - np. w spring.xml: wybiram projekt-> File -> properies ->Java Compiler -> errors/warnigs -> odznaczyc Enable projekct specific settings
+https://wiki.hybris.com/display/R5T/Trail+~+Preparation
+--bledy:
+"sts spring aop problem build path is incomplete" - 
+workaround #1 :
+Open the Spring properties (either in workspace preferences or project properties)
+Click on the Project Builders tab
+uncheck "AOP Reference Model Builder"
+
+
+5.Populating Data Model
+ Import Data - zeby zaladowac import impexa, trzeba puscic jeszcze raz Update z hmc ->platform i wczytac dane do aplikacji Cuppy
+
+6. ~+Testing+the+DAO
+-Dopisac wiecej testow jednostkowych
+-przejrzec kod 
+-wyszukiwanie i zapisywanie po hybris'owemu
+
+
+
+
+Trail ~ Webservices
+1. Add <extension name="platformwebservices" /> into the localextensions.xml
+2. webservices.security.group=webservicegroup to the local.properties-File.
+3. update Essential Data(platformwebservices) after including the platformwebservices
+4. Check in HMC webservicegroup should present in user group list.
+
+----
+Pominiête:
+--
+
+--New Data Model - Type system localization
+--Trail ~ Testing the Façades with Mockito
+
+
+---
+dodatkowe cwiczenia z tutoriala do zrobienia:
+https://wiki.hybris.com/display/R5T/Trail+~+Front+end
+rozbudowac fasade, dodac serwis i na gui
+Expand the front-ends to allow users to modify Stadium details.
+Introduce new methods to the facade to show more information about the match.
+
+
+----------
+cuppytrail dodac model, fasade, dao z populatorem i converterem
+wziac do dao przez converter dane z innych istniejacych juz modeli:
+https://wiki.hybris.com/display/R5T/Trail+~+New+Data+Model
+
+
+26-06:
+---w Fasadzie dodac converter z populatorem z modelu na dto.
+---dodac controler FirmControler i jsp z lista firm z facade  +ok
+--sprawdzic czy mozna junit robic z danymi z bazy prod. tenant.
+
+
+Model:
+Ekipa
++id
++name
++club
++country
++groupCount
+--dodac typ enum: H, U
+-ddoac mvc z ekpa
+--dodac junit 
+--dodac spring security do cuppytrail
+--dodac klienta webservice
+
+str 229
+ <http auto-config="true">
+<intercept-urlpattern="/**"access="ROLE_SPITTER"/>
+</http>
+
+
+-------
+git
+
+git show commit_hash - pokazuje pliki i zmiany w danym komicie
